@@ -103,7 +103,7 @@
         </article>
 
         <article class="gallery-item fade-in" data-category="celebration">
-          <div class="gallery-item-image" data-lightbox="images/cards/two-peas-baby-inside.jpg" data-title="Two Peas in a Pod — Baby" role="button" tabindex="0" aria-label="View Two Peas in a Pod baby card inside">
+          <div class="gallery-item-image" data-lightbox="images/cards/two-peas-baby-inside.jpg" data-lightbox-gallery="images/cards/two-peas-ellipsis-front.jpg|Front cover" data-lightbox-captions="Inside — Just became three!" data-title="Two Peas in a Pod — Baby" role="button" tabindex="0" aria-label="View Two Peas in a Pod baby card">
             <img src="images/cards/two-peas-baby-inside.jpg" alt="Two Peas in a Pod baby announcement card, inside view">
           </div>
           <div class="gallery-item-info">
@@ -114,7 +114,7 @@
         </article>
 
         <article class="gallery-item fade-in" data-category="celebration">
-          <div class="gallery-item-image" data-lightbox="images/cards/two-peas-pup-inside.jpg" data-title="Two Peas in a Pod — Pup" role="button" tabindex="0" aria-label="View Two Peas in a Pod pup card inside">
+          <div class="gallery-item-image" data-lightbox="images/cards/two-peas-pup-inside.jpg" data-lightbox-gallery="images/cards/two-peas-ellipsis-front.jpg|Front cover" data-lightbox-captions="Inside — Just became three!" data-title="Two Peas in a Pod — Pup" role="button" tabindex="0" aria-label="View Two Peas in a Pod pup card">
             <img src="images/cards/two-peas-pup-inside.jpg" alt="Two Peas in a Pod pet family card, inside view">
           </div>
           <div class="gallery-item-info">
@@ -147,8 +147,8 @@
         </article>
 
         <article class="gallery-item fade-in" data-category="celebration">
-          <div class="gallery-item-image" data-lightbox="images/cards/birthday-penguin.png" data-title="Happy Birthday Penguin" role="button" tabindex="0" aria-label="View Happy Birthday Penguin card">
-            <img src="images/cards/birthday-penguin.png" alt="Happy Birthday penguin card">
+          <div class="gallery-item-image" data-lightbox="images/cards/birthday-penguin.jpg" data-title="Happy Birthday Penguin" role="button" tabindex="0" aria-label="View Happy Birthday Penguin card">
+            <img src="images/cards/birthday-penguin.jpg" alt="Happy Birthday penguin card">
           </div>
           <div class="gallery-item-info">
             <h3>Happy Birthday Penguin</h3>
@@ -158,12 +158,23 @@
         </article>
 
         <article class="gallery-item fade-in" data-category="sympathy">
-          <div class="gallery-item-image" data-lightbox="images/cards/never-forgotten.jpg" data-title="Never Forgotten" role="button" tabindex="0" aria-label="View Never Forgotten card">
-            <img src="images/cards/never-forgotten.jpg" alt="Never Forgotten pet sympathy card">
+          <div class="gallery-item-image" data-lightbox="images/cards/never-forgotten.jpg" data-title="Never Forgotten — Dog" role="button" tabindex="0" aria-label="View Never Forgotten dog sympathy card">
+            <img src="images/cards/never-forgotten.jpg" alt="Never Forgotten dog sympathy card">
           </div>
           <div class="gallery-item-info">
             <h3>Never Forgotten</h3>
-            <p>A gentle tribute for a beloved pet</p>
+            <p>A gentle tribute for a beloved dog</p>
+            <span class="gallery-item-tag">Sympathy</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="sympathy">
+          <div class="gallery-item-image" data-lightbox="images/cards/never-forgotten-cat.jpg" data-title="Never Forgotten — Cat" role="button" tabindex="0" aria-label="View Never Forgotten cat sympathy card">
+            <img src="images/cards/never-forgotten-cat.jpg" alt="Never Forgotten cat sympathy card">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Never Forgotten</h3>
+            <p>A gentle tribute for a beloved cat</p>
             <span class="gallery-item-tag">Sympathy</span>
           </div>
         </article>
@@ -180,8 +191,11 @@
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
     <div class="lightbox-content">
       <button class="lightbox-close" aria-label="Close preview">&times;</button>
+      <button class="lightbox-prev" type="button" aria-label="Previous image" hidden>&lsaquo;</button>
+      <button class="lightbox-next" type="button" aria-label="Next image" hidden>&rsaquo;</button>
       <img src="" alt="">
       <p class="lightbox-caption"></p>
+      <p class="lightbox-counter" hidden aria-live="polite"></p>
     </div>
   </div>
 

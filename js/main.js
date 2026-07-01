@@ -57,33 +57,101 @@
   if (lightbox) {
     const lightboxImg = lightbox.querySelector("img");
     const lightboxCaption = lightbox.querySelector(".lightbox-caption");
+    const lightboxCounter = lightbox.querySelector(".lightbox-counter");
     const closeBtn = lightbox.querySelector(".lightbox-close");
+    const prevBtn = lightbox.querySelector(".lightbox-prev");
+    const nextBtn = lightbox.querySelector(".lightbox-next");
+    let slides = [];
+    let slideIndex = 0;
 
-    document.querySelectorAll("[data-lightbox]").forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        lightboxImg.src = trigger.dataset.lightbox;
-        lightboxImg.alt = trigger.dataset.title || "";
-        if (lightboxCaption) {
-          lightboxCaption.textContent = trigger.dataset.title || "";
-        }
-        lightbox.classList.add("open");
-        document.body.style.overflow = "hidden";
-      });
-    });
+    function parseSlides(trigger) {
+      const title = trigger.dataset.title || "";
+      const slides = [];
+
+      if (trigger.dataset.lightbox) {
+        slides.push({
+          src: trigger.dataset.lightbox.trim(),
+          caption: trigger.dataset.lightboxCaptions?.trim() || title,
+        });
+      }
+
+      if (trigger.dataset.lightboxGallery) {
+        trigger.dataset.lightboxGallery.split(",").forEach((entry) => {
+          const [src, caption] = entry.split("|").map((part) => part.trim());
+          if (src) {
+            slides.push({ src, caption: caption || title });
+          }
+        });
+      }
+
+      return slides;
+    }
+
+    function updateNav() {
+      const hasMultiple = slides.length > 1;
+      prevBtn.hidden = !hasMultiple;
+      nextBtn.hidden = !hasMultiple;
+      lightboxCounter.hidden = !hasMultiple;
+      if (hasMultiple) {
+        lightboxCounter.textContent = `${slideIndex + 1} / ${slides.length}`;
+      }
+    }
+
+    function showSlide(index) {
+      slideIndex = (index + slides.length) % slides.length;
+      const slide = slides[slideIndex];
+      lightboxImg.src = slide.src;
+      lightboxImg.alt = slide.caption;
+      if (lightboxCaption) {
+        lightboxCaption.textContent = slide.caption;
+      }
+      updateNav();
+    }
+
+    function openLightbox(trigger) {
+      slides = parseSlides(trigger);
+      showSlide(0);
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
 
     function closeLightbox() {
       lightbox.classList.remove("open");
       document.body.style.overflow = "";
+      lightboxImg.removeAttribute("src");
+      slides = [];
+      slideIndex = 0;
     }
+
+    document.querySelectorAll("[data-lightbox]").forEach((trigger) => {
+      trigger.addEventListener("click", () => openLightbox(trigger));
+      trigger.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLightbox(trigger);
+        }
+      });
+    });
+
+    prevBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showSlide(slideIndex - 1);
+    });
+
+    nextBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showSlide(slideIndex + 1);
+    });
 
     closeBtn?.addEventListener("click", closeLightbox);
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) closeLightbox();
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("open")) {
-        closeLightbox();
-      }
+      if (!lightbox.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showSlide(slideIndex - 1);
+      if (e.key === "ArrowRight") showSlide(slideIndex + 1);
     });
   }
 })();
