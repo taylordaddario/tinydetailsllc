@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse the Tiny Details LLC greeting card gallery — designs for every occasion.">
+  <title>Gallery — Tiny Details LLC</title>
+  <link rel="icon" href="images/logo-square.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="Tiny Details" class="logo-img">
+        <span class="logo-text">Tiny Details</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.etsy.com/shop/TinyDetailsLLC" class="nav-cta" target="_blank" rel="noopener noreferrer">Shop</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.etsy.com/shop/TinyDetailsLLC" class="nav-cta" target="_blank" rel="noopener noreferrer">Shop</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery-intro">
+      <div class="container fade-in">
+        <p class="section-label">Portfolio</p>
+        <h1 class="section-title">A Few Designs</h1>
+        <p class="section-lead">Greeting cards for life's special moments. Click any design to view it larger.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="gallery-filters fade-in">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="celebration">Celebration</button>
+        <button class="filter-btn" data-filter="love">Love</button>
+        <button class="filter-btn" data-filter="home">Home</button>
+        <button class="filter-btn" data-filter="sympathy">Sympathy</button>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-item fade-in" data-category="home">
+          <div class="gallery-item-image" data-lightbox="images/cards/gnome-home.jpg" data-title="Home Sweet Gnome" role="button" tabindex="0" aria-label="View Home Sweet Gnome card">
+            <img src="images/cards/gnome-home.jpg" alt="Home Sweet Gnome new home card">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Home Sweet Gnome</h3>
+            <p>A cozy welcome for a new home</p>
+            <span class="gallery-item-tag">Home</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="love">
+          <div class="gallery-item-image" data-lightbox="images/cards/love-birds.jpg" data-title="Love Birds for Life" role="button" tabindex="0" aria-label="View Love Birds for Life card">
+            <img src="images/cards/love-birds.jpg" alt="Love Birds for Life card">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Love Birds for Life</h3>
+            <p>For weddings, anniversaries &amp; forever love</p>
+            <span class="gallery-item-tag">Love</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="celebration">
+          <div class="gallery-item-image" data-lightbox="images/cards/croc-retirement.jpg" data-title="Happy Retirement" role="button" tabindex="0" aria-label="View Happy Retirement card">
+            <img src="images/cards/croc-retirement.jpg" alt="Happy Retirement alligator card">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Happy Retirement</h3>
+            <p>Celebrate the next adventure in style</p>
+            <span class="gallery-item-tag">Celebration</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="love">
+          <div class="gallery-item-image" data-lightbox="images/cards/two-peas-friends.jpg" data-title="Two Peas in a Pod — Friends" role="button" tabindex="0" aria-label="View Two Peas in a Pod friends card">
+            <img src="images/cards/two-peas-friends.jpg" alt="Two Peas in a Pod card for friends and relationships">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Two Peas in a Pod</h3>
+            <p>For friendships &amp; relationships — blank inside</p>
+            <span class="gallery-item-tag">Love</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="celebration">
+          <div class="gallery-item-image" data-lightbox="images/cards/two-peas-baby-inside.jpg" data-title="Two Peas in a Pod — Baby" role="button" tabindex="0" aria-label="View Two Peas in a Pod baby card inside">
+            <img src="images/cards/two-peas-baby-inside.jpg" alt="Two Peas in a Pod baby announcement card, inside view">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Two Peas in a Pod</h3>
+            <p>Baby announcement — "Just became three!"</p>
+            <span class="gallery-item-tag">Celebration</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="celebration">
+          <div class="gallery-item-image" data-lightbox="images/cards/two-peas-pup-inside.jpg" data-title="Two Peas in a Pod — Pup" role="button" tabindex="0" aria-label="View Two Peas in a Pod pup card inside">
+            <img src="images/cards/two-peas-pup-inside.jpg" alt="Two Peas in a Pod pet family card, inside view">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Two Peas in a Pod</h3>
+            <p>Pet family — "Just became three!"</p>
+            <span class="gallery-item-tag">Celebration</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="celebration">
+          <div class="gallery-item-image" data-lightbox="images/cards/espresso-yourself.jpg" data-title="Espresso Yourself" role="button" tabindex="0" aria-label="View Espresso Yourself card">
+            <img src="images/cards/espresso-yourself.jpg" alt="Espresso Yourself encouragement card">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Espresso Yourself</h3>
+            <p>A caffeinated dose of encouragement</p>
+            <span class="gallery-item-tag">Celebration</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="love">
+          <div class="gallery-item-image" data-lightbox="images/cards/growing-together.jpg" data-title="Growing Together" role="button" tabindex="0" aria-label="View Growing Together card">
+            <img src="images/cards/growing-together.jpg" alt="Growing Together tree card">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Growing Together</h3>
+            <p>For relationships that grow deeper over time</p>
+            <span class="gallery-item-tag">Love</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="celebration">
+          <div class="gallery-item-image" data-lightbox="images/cards/birthday-penguin.png" data-title="Happy Birthday Penguin" role="button" tabindex="0" aria-label="View Happy Birthday Penguin card">
+            <img src="images/cards/birthday-penguin.png" alt="Happy Birthday penguin card">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Happy Birthday Penguin</h3>
+            <p>A whimsical birthday wish</p>
+            <span class="gallery-item-tag">Celebration</span>
+          </div>
+        </article>
+
+        <article class="gallery-item fade-in" data-category="sympathy">
+          <div class="gallery-item-image" data-lightbox="images/cards/never-forgotten.jpg" data-title="Never Forgotten" role="button" tabindex="0" aria-label="View Never Forgotten card">
+            <img src="images/cards/never-forgotten.jpg" alt="Never Forgotten pet sympathy card">
+          </div>
+          <div class="gallery-item-info">
+            <h3>Never Forgotten</h3>
+            <p>A gentle tribute for a beloved pet</p>
+            <span class="gallery-item-tag">Sympathy</span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="cta-banner fade-in">
+      <h2>Love what you see?</h2>
+      <p>Our Etsy shop is coming soon. Check back for listings—or reach out for a custom request.</p>
+      <a href="https://www.etsy.com/shop/TinyDetailsLLC" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visit Etsy Shop</a>
+    </div>
+  </main>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Close preview">&times;</button>
+      <img src="" alt="">
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="">
+          <span>Tiny Details</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+          <a href="https://www.etsy.com/shop/TinyDetailsLLC" target="_blank" rel="noopener noreferrer">Shop</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/tinydetailsllc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Tiny Details LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
