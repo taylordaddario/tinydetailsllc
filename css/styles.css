@@ -100,8 +100,7 @@ ul {
 .logo-text {
   font-size: 13px;
   font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .nav-desktop {
@@ -230,8 +229,7 @@ ul {
 
 .section-label {
   font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--olive);
   margin-bottom: 0.75rem;
 }
@@ -239,8 +237,7 @@ ul {
 .section-title {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 400;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--black);
   line-height: 1.3;
   margin-bottom: 1rem;
@@ -342,8 +339,7 @@ ul {
 
 .hero-eyebrow {
   font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--olive);
   margin-bottom: 1rem;
 }
@@ -351,8 +347,7 @@ ul {
 .hero h1 {
   font-size: clamp(1.5rem, 4vw, 2.25rem);
   font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   line-height: 1.2;
   color: var(--black);
   margin-bottom: 0.75rem;
@@ -424,8 +419,7 @@ ul {
 .process-item figcaption {
   margin-top: 0.75rem;
   font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--pewter);
   text-align: center;
 }
@@ -485,8 +479,7 @@ ul {
 .design-card-body h3 {
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--black);
   margin-bottom: 0.2rem;
 }
@@ -547,8 +540,7 @@ ul {
 .value-item h3 {
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   margin-bottom: 0.6rem;
   color: var(--black);
 }
@@ -653,8 +645,7 @@ ul {
 .gallery-item-info h3 {
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--black);
   margin-bottom: 0.2rem;
 }
@@ -700,7 +691,8 @@ ul {
 }
 
 .lightbox-content img {
-  max-height: 85vh;
+  display: block;
+  max-height: 75vh;
   width: auto;
   margin: 0 auto;
 }
@@ -709,13 +701,14 @@ ul {
 .lightbox-next {
   position: absolute;
   top: 50%;
+  z-index: 2;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(17, 17, 17, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   color: var(--white);
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.75rem;
   line-height: 1;
   cursor: pointer;
   transition: background var(--transition);
@@ -723,15 +716,43 @@ ul {
 
 .lightbox-prev:hover,
 .lightbox-next:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(17, 17, 17, 0.9);
 }
 
 .lightbox-prev {
-  left: -3.25rem;
+  left: 0.75rem;
 }
 
 .lightbox-next {
-  right: -3.25rem;
+  right: 0.75rem;
+}
+
+.lightbox-slide-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.lightbox-slide-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.lightbox-slide-btn:hover,
+.lightbox-slide-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.65);
+  color: var(--white);
 }
 
 .lightbox-caption {
@@ -772,17 +793,17 @@ ul {
 @media (max-width: 768px) {
   .lightbox-prev,
   .lightbox-next {
-    top: auto;
-    bottom: 4.5rem;
-    transform: none;
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.35rem;
   }
 
   .lightbox-prev {
-    left: 0;
+    left: 0.35rem;
   }
 
   .lightbox-next {
-    right: 0;
+    right: 0.35rem;
   }
 }
 
@@ -827,8 +848,7 @@ ul {
 .contact-card h3 {
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   margin-bottom: 0.75rem;
   color: var(--forest);
 }
@@ -864,8 +884,7 @@ ul {
 
 .contact-band p {
   font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -894,10 +913,9 @@ ul {
 }
 
 .cta-banner h2 {
-  font-size: 13px;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
   font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   margin-bottom: 0.75rem;
   color: var(--white);
 }
@@ -952,8 +970,7 @@ ul {
 
 .footer-brand span {
   font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .footer-links {

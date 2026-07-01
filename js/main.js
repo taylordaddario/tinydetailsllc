@@ -58,6 +58,7 @@
     const lightboxImg = lightbox.querySelector("img");
     const lightboxCaption = lightbox.querySelector(".lightbox-caption");
     const lightboxCounter = lightbox.querySelector(".lightbox-counter");
+    const slideNav = lightbox.querySelector(".lightbox-slide-nav");
     const closeBtn = lightbox.querySelector(".lightbox-close");
     const prevBtn = lightbox.querySelector(".lightbox-prev");
     const nextBtn = lightbox.querySelector(".lightbox-next");
@@ -65,39 +66,66 @@
     let slideIndex = 0;
 
     function parseSlides(trigger) {
-      const title = trigger.dataset.title || "";
-      const slides = [];
+      const title = trigger.getAttribute("data-title") || "";
+      const primaryCaption = trigger.getAttribute("data-lightbox-captions") || title;
+      const parsed = [];
 
-      if (trigger.dataset.lightbox) {
-        slides.push({
-          src: trigger.dataset.lightbox.trim(),
-          caption: trigger.dataset.lightboxCaptions?.trim() || title,
-        });
+      const primarySrc = trigger.getAttribute("data-lightbox");
+      if (primarySrc) {
+        parsed.push({ src: primarySrc.trim(), caption: primaryCaption.trim() || title });
       }
 
-      if (trigger.dataset.lightboxGallery) {
-        trigger.dataset.lightboxGallery.split(",").forEach((entry) => {
+      const gallery = trigger.getAttribute("data-lightbox-gallery");
+      if (gallery) {
+        gallery.split(",").forEach((entry) => {
           const [src, caption] = entry.split("|").map((part) => part.trim());
           if (src) {
-            slides.push({ src, caption: caption || title });
+            parsed.push({ src, caption: caption || title });
           }
         });
       }
 
-      return slides;
+      return parsed;
+    }
+
+    function renderSlideNav() {
+      if (!slideNav) return;
+
+      slideNav.innerHTML = "";
+      if (slides.length <= 1) {
+        slideNav.hidden = true;
+        return;
+      }
+
+      slideNav.hidden = false;
+      slides.forEach((slide, index) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "lightbox-slide-btn";
+        btn.textContent = slide.caption;
+        btn.setAttribute("aria-current", index === slideIndex ? "true" : "false");
+        if (index === slideIndex) btn.classList.add("active");
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showSlide(index);
+        });
+        slideNav.appendChild(btn);
+      });
     }
 
     function updateNav() {
       const hasMultiple = slides.length > 1;
-      prevBtn.hidden = !hasMultiple;
-      nextBtn.hidden = !hasMultiple;
-      lightboxCounter.hidden = !hasMultiple;
-      if (hasMultiple) {
+      if (prevBtn) prevBtn.hidden = !hasMultiple;
+      if (nextBtn) nextBtn.hidden = !hasMultiple;
+      if (lightboxCounter) lightboxCounter.hidden = !hasMultiple;
+      if (hasMultiple && lightboxCounter) {
         lightboxCounter.textContent = `${slideIndex + 1} / ${slides.length}`;
       }
+      renderSlideNav();
     }
 
     function showSlide(index) {
+      if (!slides.length) return;
       slideIndex = (index + slides.length) % slides.length;
       const slide = slides[slideIndex];
       lightboxImg.src = slide.src;
@@ -110,7 +138,9 @@
 
     function openLightbox(trigger) {
       slides = parseSlides(trigger);
-      showSlide(0);
+      if (!slides.length) return;
+      const startIndex = Number.parseInt(trigger.getAttribute("data-lightbox-start") || "0", 10);
+      showSlide(Number.isNaN(startIndex) ? 0 : startIndex);
       lightbox.classList.add("open");
       document.body.style.overflow = "hidden";
     }
@@ -121,6 +151,10 @@
       lightboxImg.removeAttribute("src");
       slides = [];
       slideIndex = 0;
+      if (slideNav) {
+        slideNav.innerHTML = "";
+        slideNav.hidden = true;
+      }
     }
 
     document.querySelectorAll("[data-lightbox]").forEach((trigger) => {
@@ -150,8 +184,8 @@
     document.addEventListener("keydown", (e) => {
       if (!lightbox.classList.contains("open")) return;
       if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowLeft") showSlide(slideIndex - 1);
-      if (e.key === "ArrowRight") showSlide(slideIndex + 1);
+      if (slides.length > 1 && e.key === "ArrowLeft") showSlide(slideIndex - 1);
+      if (slides.length > 1 && e.key === "ArrowRight") showSlide(slideIndex + 1);
     });
   }
 })();
