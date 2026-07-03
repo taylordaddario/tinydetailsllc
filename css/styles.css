@@ -219,6 +219,12 @@ ul {
   padding: 0 1.25rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
 .section {
   padding: 4.5rem 0;
 }
@@ -330,7 +336,8 @@ ul {
 }
 
 .hero-body {
-  padding: 3rem 0 4rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
 }
 
 .hero-inner {
@@ -368,7 +375,8 @@ ul {
 
 @media (max-width: 768px) {
   .hero-body {
-    padding: 2rem 0 3rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
   }
 
   .btn-group {
